@@ -1,0 +1,8 @@
+# GNU Sanvannah git repos
+repos/
+
+# cache and config files
+config.d/
+
+# pycache
+/**/__pycache__/
