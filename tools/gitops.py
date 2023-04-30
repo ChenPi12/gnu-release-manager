@@ -13,9 +13,11 @@ from urllib.parse import *
 
 class git:
     @staticmethod
-    def clone(url:str, path:str):
+    def clone(url:str, path:str, basename:str = "*"):
+        Log.info(f"Cloning {url} into '{path}{os.path.sep}{basename}'")
         urlp = urlparse(url)
-        basename = os.path.basename(urlp.path)
+        if(basename == "*"):
+            basename = os.path.basename(urlp.path)
         path = Path(path, basename).absolute()
         cmd = f"\"{GIT}\" clone -v --progress -- \"{url}\" \"{str(path)}\""
         Log.info(f"Running command: {cmd}")

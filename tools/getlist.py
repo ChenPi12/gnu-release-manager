@@ -13,7 +13,9 @@ def get_online_repo_list():
     repos = []
     for i in data.split("\n"):
         i = i.strip()
-        repo = Repo(i, repo_url_fmt % i)
+        repo = Repo(i.replace(".git","").replace("/","_"), repo_url_fmt % i)
+        if(repo.name() == ""):
+            continue
         repos.append(repo)
     Log.info(f"Get gnu repos list from {pl_url}: {len(repos)} repos.")
     return repos

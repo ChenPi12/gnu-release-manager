@@ -8,3 +8,5 @@ CHARSET = "utf-8"
 
 # git executable
 GIT = "git"
+
+NPROC = 8
